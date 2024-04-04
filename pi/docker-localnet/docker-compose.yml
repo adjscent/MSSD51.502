@@ -35,8 +35,8 @@ services:
     cap_add:
      - NET_ADMIN
     # command: 
-    # - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ExitOnForwardFailure=yes -f -N -L  0.0.0.0:5555:vpn.trinityevents.sg:5555 root@127.0.0.1 
-    # - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ExitOnForwardFailure=yes -f -N -L  0.0.0.0:1194:vpn.trinityevents.sg:1194 root@127.0.0.1
+    # - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ExitOnForwardFailure=yes -f -N -L  0.0.0.0:5555:152.42.196.192:5555 root@127.0.0.1 
+    # - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ExitOnForwardFailure=yes -f -N -L  0.0.0.0:1194:152.42.196.192:1194 root@127.0.0.1
     # - dnsmasq -k
 
 networks:

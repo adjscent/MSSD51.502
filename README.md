@@ -13,6 +13,6 @@ The list of scripts included are:
 
 IP addresses:
 - Web server: 128.199.102.112 check.trinityevents.sg
-- VPN server: 152.42.196.192 vpn.trinityevents.sg
+- VPN server: 152.42.186.94 vpn.trinityevents.sg
 - Fake DNS server: 9.9.9.9 (virtualised)
 - Fake Web server: 128.199.102.112 check.trinityevents.sg (virtualised)
