@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+  dhcp:
+    restart: always
+    image: strm/dnsmasq:latest
+    volumes:
+      - ./dnsmasq.conf:/etc/dnsmasq.conf:ro
+    cap_add:
+      - NET_ADMIN
+    networks:
+      network_localnet:
+          ipv4_address: '128.199.102.2'
+
+  fakewebserver:
+    restart: always
+    image: php:8.1-apache
+    volumes:
+      - ./website:/var/www/html/
+    networks:
+      network_localnet:
+        ipv4_address: '128.199.102.112'
+
+  fakednsserver:
+    restart: always
+    build: fake-dns-docker
+    # image: strm/dnsmasq:latest
+    volumes:
+      - ./dnsmasq_fake.conf:/etc/dnsmasq.conf:ro
+    networks:
+      network_serverip:
+        ipv4_address: '8.8.8.8'
+    ports:
+     - "8.8.8.1:53:53/udp"
+     - "8.8.8.1:53:53"
+    cap_add:
+     - NET_ADMIN
+    # command: 
+    # - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ExitOnForwardFailure=yes -f -N -L  0.0.0.0:5555:vpn.trinityevents.sg:5555 root@127.0.0.1 
+    # - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ExitOnForwardFailure=yes -f -N -L  0.0.0.0:1194:vpn.trinityevents.sg:1194 root@127.0.0.1
+    # - dnsmasq -k
+
+networks:
+  network_localnet:
+    driver: ipvlan
+    ipam:
+      config:
+      - subnet: 128.199.102.0/24
+        gateway: 128.199.102.1
+    driver_opts:
+      parent: br0
+  network_serverip:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 8.8.8.0/24
+        gateway: 8.8.8.1

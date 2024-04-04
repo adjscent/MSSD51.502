@@ -28,5 +28,3 @@ sudo service dnsmasq restart
 
 ssh-keygen
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-ssh -N -L 127.0.0.1:5555:vpn.trinityevents.sg:5555 127.0.0.1 
-ssh -N -L 127.0.0.1:1194:vpn.trinityevents.sg:1194 127.0.0.1
