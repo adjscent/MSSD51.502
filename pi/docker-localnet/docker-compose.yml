@@ -1,22 +1,21 @@
-version: '3'
-
 services:
-  dhcp:
-    restart: always
-    image: strm/dnsmasq:latest
-    volumes:
-      - ./dnsmasq.conf:/etc/dnsmasq.conf:ro
-    cap_add:
-      - NET_ADMIN
-    networks:
-      network_localnet:
-          ipv4_address: '128.199.102.2'
+  # dhcp:
+  #   restart: always
+  #   build: fake-dns-docker
+  #   # image: strm/dnsmasq:latest
+  #   volumes:
+  #     - ./dnsmasq.conf:/etc/dnsmasq.conf:ro
+  #   cap_add:
+  #     - NET_ADMIN
+  #   networks:
+  #     network_localnet:
+  #         ipv4_address: '128.199.102.2'
 
   fakewebserver:
     restart: always
     image: php:8.1-apache
     volumes:
-      - ./website:/var/www/html/
+      - ./website/index.php/:/var/www/html/index.php
     networks:
       network_localnet:
         ipv4_address: '128.199.102.112'
@@ -48,7 +47,8 @@ networks:
       - subnet: 128.199.102.0/24
         gateway: 128.199.102.1
     driver_opts:
-      parent: br0
+      parent: wlan0
+
   network_serverip:
     driver: bridge
     ipam:
