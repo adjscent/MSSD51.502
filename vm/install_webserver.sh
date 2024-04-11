@@ -10,7 +10,7 @@ sudo apt-get install -y apache2 php libapache2-mod-php
 sudo service apache2 restart
 
 echo "<?php
-    echo 'Hello, Real World!';
+    echo '<h1>Hello, Real World!</h1>';
 ?>" > /var/www/html/index.php
 
 rm /var/www/html/index.html

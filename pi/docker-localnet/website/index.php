@@ -1,3 +1,3 @@
 <?php
-    echo 'Hello, Fake World!';
+    echo '<h1>Hello, Fake World!</h1>';
 ?>
