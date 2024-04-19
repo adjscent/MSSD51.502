@@ -4,11 +4,17 @@ A repository for the course MSSD51.502 final report
 
 The list of scripts included are:
 [] - install_mitm_local_net.sh
+
 [] - install_mitm_server_ip.sh
+
 [] - install_vpnserver.sh
+
 [] - install_webserver.sh
+
 [] - install_fake_webserver.sh
+
 [] - install_fake_dns_server.sh
+
 
 
 IP addresses:
