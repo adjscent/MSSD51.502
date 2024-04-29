@@ -1,21 +1,26 @@
 # MSSD51.502
 
-A repository for the course MSSD51.502 final report
+A repository for the course MSSD51.502 final report.
+
+This is an implementation of the TunnelCrack attack (LocalNet and ServerIP) that is referenced in the paper https://papers.mathyvanhoef.com/usenix2023-tunnelcrack.pdf.
 
 The list of scripts included are:
-[] - install_mitm_local_net.sh
+[] - vm/install_mitm_local_net.sh
 
-[] - install_mitm_server_ip.sh
+[] - vm/install_mitm_server_ip.sh
 
-[] - install_vpnserver.sh
+[] - vm/install_vpnserver.sh
 
-[] - install_webserver.sh
+[] - vm/install_webserver.sh
 
-[] - install_fake_webserver.sh
+[] - vm/install_fake_webserver.sh
 
-[] - install_fake_dns_server.sh
+[] - vm/install_fake_dns_server.sh
 
+There is also all in one setup for a raspberry pi 4 running raspberry pi OS 64 bit bookworm. This runs localnet attack by default.
 
+[] - pi/host_install.sh
+[] - pi/docker-localnet
 
 IP addresses:
 - Web server: 128.199.102.112 check.trinityevents.sg
